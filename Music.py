@@ -34,9 +34,9 @@ class Music(commands.Cog):
 
         with youtube_dl.YoutubeDL(YDL_OPTIONS) as ydl:
             if not re.match(URL_REGEX, query):
-                url = await self.handle_search_name(ydl, query)
+                url = self.handle_search_name(ydl, query)
             else:
-                url = await self.handle_url(ydl, query)
+                url = self.handle_url(ydl, query)
             source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
             vc.play(source)
 
@@ -50,12 +50,12 @@ class Music(commands.Cog):
         await ctx.voice_client.resume()
         await ctx.send("Audio resumed")
 
-    async def handle_url(self, ydl, url):
+    def handle_url(self, ydl, url):
         info = ydl.extract_info(url, download=False)
         url2 = info['formats'][0]['url']
         return url2
 
-    async def handle_search_name(self, ydl, name):
+    def handle_search_name(self, ydl, name):
         info = ydl.extract_info(f"ytsearch:{name}", download=False)
         url = info['entries'][0]['formats'][0]['url']
         return url
