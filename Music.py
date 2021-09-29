@@ -24,6 +24,8 @@ class Music(commands.Cog):
 
     @commands.command()
     async def play(self, ctx, url):
+        await self.join(ctx)
+
         ctx.voice_client.stop()
 
         vc = ctx.voice_client
