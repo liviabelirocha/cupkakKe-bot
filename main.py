@@ -10,7 +10,7 @@ cogs = [Music]
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix="$", intents=intents)
 
-for i in range(len(cogs)):
-    cogs[i].setup(client)
+for cog in cogs:
+    cog.setup(client)
 
 client.run(DISCORD_PRIVATE_KEY)
