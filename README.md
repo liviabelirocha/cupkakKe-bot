@@ -6,9 +6,11 @@ A Discord bot that plays music
 
 - [x] Play music given the URL
 - [x] Bot join when `$play` is called
-- [ ] Search song by name
+- [x] Search song by name
 - [ ] Add songs queue
 - [ ] Error handling
+- [ ] Return messages to user when playing song
+- [ ] Return messages to user when add to queue
 
 Command Prefix `$`
 
