@@ -3,3 +3,4 @@ youtube_dl
 black
 ffmpeg
 PyNaCl
+python-decouple

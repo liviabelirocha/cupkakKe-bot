@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
-
-from settings import *
+from decouple import config
 
 import Music
 
@@ -13,4 +12,4 @@ client = commands.Bot(command_prefix="!", intents=intents)
 for cog in cogs:
     cog.setup(client)
 
-client.run(DISCORD_PRIVATE_KEY)
+client.run(config("DISCORD_PRIVATE_KEY"))

@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 import youtube_dl
 
-from settings import *
+from options import *
 
 
 class Music(commands.Cog):
