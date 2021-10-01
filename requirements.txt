@@ -4,3 +4,4 @@ black
 ffmpeg
 PyNaCl
 python-decouple
+flask
