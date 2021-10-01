@@ -1,3 +1,5 @@
 discord.py[voice]
 youtube_dl
 black
+ffmpeg
+PyNaCl
