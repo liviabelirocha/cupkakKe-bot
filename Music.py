@@ -44,6 +44,7 @@ class Music(commands.Cog):
 
     @commands.command()
     async def join(self, ctx):
+
         if ctx.author.voice is None:
             await ctx.send("You have to be in a voice channel.")
             return False
@@ -62,10 +63,13 @@ class Music(commands.Cog):
 
     @commands.command()
     async def play(self, ctx, *, query):
+
         joined = await self.join(ctx)
+
 
         if not joined:
             return
+
 
         self.vc = ctx.voice_client
 
@@ -100,6 +104,16 @@ class Music(commands.Cog):
         if self.vc != "" and self.vc:
             self.vc.stop()
             self.play_next()
+
+    @commands.command()
+    async def queue(self, ctx):
+        if len(self.queue) == 0:
+            await ctx.send("Queue is empty")
+            return
+        message = "Current queue: \n"
+        for song in self.queue:
+            message += f"{song['title']}\n"
+        await ctx.send(message)
 
 
 def setup(client):
